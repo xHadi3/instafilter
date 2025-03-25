@@ -30,9 +30,7 @@ struct ContentView: View {
                 .padding(.vertical)
                 
                 HStack{
-                    Button("Change Filter"){
-                        
-                    }
+                    Button("Change Filter", action: changeFilter)
                     Spacer()
                 }
             }
@@ -41,7 +39,9 @@ struct ContentView: View {
         }
     }
     
-    
+    func changeFilter(){
+        
+    }
     
 }
 

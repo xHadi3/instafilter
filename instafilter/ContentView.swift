@@ -8,15 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var processedImage: Image?
+    @State private var filterIntensity = 0.5
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            VStack{
+               Spacer()
+                
+                if let processedImage{
+                    processedImage
+                        .resizable()
+                        .scaledToFill()
+                } else {
+                    ContentUnavailableView("No picture", systemImage: "photo.badge.plus", description: Text("Tap to import a photo"))
+                }
+                
+                HStack{
+                    Text("Intensity")
+                    Slider(value:$filterIntensity)
+                }
+                .padding(.vertical)
+                
+                HStack{
+                    Button("Change Filter"){
+                        
+                    }
+                    Spacer()
+                }
+            }
+            .padding([.horizontal, .bottom])
+            .navigationTitle("Instafilter")
         }
-        .padding()
     }
+    
+    
+    
 }
 
 #Preview {
